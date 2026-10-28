@@ -1,0 +1,18 @@
+# Pastas de compilação e binários gerados pelo .NET
+bin/
+obj/
+
+# Arquivos e pastas de ambiente virtual / IDE
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Arquivos de configuração de usuário e logs
+*.user
+*.userosscache
+*.suo
+*.log
+.DS_Store
