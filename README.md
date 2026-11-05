@@ -69,3 +69,19 @@ pwsh -NoProfile -File tests/Integracao.ps1
 ```
 
 O script executa o servidor com um arquivo de dados temporário e verifica a interface servida, o OpenAPI, as fórmulas, as validações, as operações HTTP e a persistência após reinício. O workflow de integração do GitHub Actions roda a mesma verificação em pushes e pull requests.
+
+## Telas do Sistema Acadêmico
+
+### Painel de avaliações
+
+![Painel com prova, trabalho e participação e suas notas calculadas](docs/imagens/painel.png)
+
+### Recuperação de uma prova
+
+![Prova com nota original 5, recuperação 8 e nota final 8](docs/imagens/recuperacao.png)
+
+### Consulta de avaliações no Swagger
+
+A requisição `GET /api/avaliacoes` retorna a lista de avaliações cadastradas em JSON.
+
+![Swagger UI mostrando a consulta de avaliações com status 200 e resposta em JSON](docs/imagens/swagger.png)
