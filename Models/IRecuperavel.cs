@@ -1,6 +1,6 @@
-//Contrato: quem implementa esta interface
-//  precisa ter Recuperar
+namespace SistemaAvaliacao.Models;
+
 public interface IRecuperavel
 {
-    double Recuperar(double novaNota);
+    Avaliacao Recuperar(double novaNota);
 }

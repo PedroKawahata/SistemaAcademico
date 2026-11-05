@@ -1,10 +1,7 @@
-public class Participacao : Avaliacao
-{
-    public int Presencas {get; set;}
-    public int Aulas {get; set;}
+namespace SistemaAvaliacao.Models;
 
-    public override double CalcularNota()
-    {
-        return (double) Presencas / Aulas * 10;
-    }
+public sealed record Participacao(int Id, string Titulo, int Presencas, int Aulas)
+    : Avaliacao(Id, Titulo)
+{
+    public override double CalcularNota() => 10.0 * Presencas / Aulas;
 }

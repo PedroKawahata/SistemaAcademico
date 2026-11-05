@@ -1,6 +1,63 @@
-@SistemaAvaliacao_HostAddress = http://localhost:5125
+@host = http://localhost:5125
+@id = 1
 
-GET {{SistemaAvaliacao_HostAddress}}/weatherforecast/
-Accept: application/json
+### Listar avaliações
+GET {{host}}/api/avaliacoes
 
-###
+### Consultar por ID
+GET {{host}}/api/avaliacoes/{{id}}
+
+### Cadastrar prova
+POST {{host}}/api/avaliacoes
+Content-Type: application/json
+
+{
+  "titulo": "Prova de matemática",
+  "tipo": "Prova",
+  "acertos": 7,
+  "total": 10
+}
+
+### Cadastrar trabalho
+POST {{host}}/api/avaliacoes
+Content-Type: application/json
+
+{
+  "titulo": "Seminário de história",
+  "tipo": "Trabalho",
+  "conteudo": 9,
+  "apresentacao": 8
+}
+
+### Cadastrar participação
+POST {{host}}/api/avaliacoes
+Content-Type: application/json
+
+{
+  "titulo": "Frequência do primeiro bimestre",
+  "tipo": "Participacao",
+  "presencas": 18,
+  "aulas": 20
+}
+
+### Editar prova
+PUT {{host}}/api/avaliacoes/{{id}}
+Content-Type: application/json
+
+{
+  "titulo": "Prova de matemática revisada",
+  "tipo": "Prova",
+  "acertos": 8,
+  "total": 10
+}
+
+### Registrar recuperação
+PUT {{host}}/api/avaliacoes/{{id}}/recuperacao
+Content-Type: application/json
+
+{
+  "nota": 9
+}
+
+### Excluir avaliação
+DELETE {{host}}/api/avaliacoes/{{id}}

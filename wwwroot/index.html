@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cadastre avaliações, calcule notas e registre recuperações.">
+  <title>Sistema Acadêmico · Avaliações</title>
+  <link rel="stylesheet" href="/estilos.css">
+  <script src="/avaliacoes.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="limite">
+      <p class="marca">Sistema Acadêmico</p>
+      <h1>Painel de avaliações</h1>
+      <p>Organize provas, trabalhos e participações em um só lugar.</p>
+    </div>
+  </header>
+  <main class="limite">
+    <p id="mensagem" role="status" aria-live="polite"></p>
+    <div class="painel">
+      <section class="cartao" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Nova avaliação</h2>
+        <form id="avaliacao">
+          <label for="titulo">Título</label>
+          <input id="titulo" name="titulo" required maxlength="120" placeholder="Ex.: Prova de matemática">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" name="tipo">
+            <option value="Prova">Prova</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Participacao">Participação</option>
+          </select>
+          <fieldset data-tipo="Prova">
+            <legend>Resultado da prova</legend>
+            <label>Acertos <input name="acertos" type="number" min="0" required></label>
+            <label>Total de questões <input name="total" type="number" min="1" required></label>
+          </fieldset>
+          <fieldset data-tipo="Trabalho" hidden disabled>
+            <legend>Notas do trabalho</legend>
+            <label>Conteúdo <input name="conteudo" type="number" min="0" max="10" step="any" required></label>
+            <label>Apresentação <input name="apresentacao" type="number" min="0" max="10" step="any" required></label>
+          </fieldset>
+          <fieldset data-tipo="Participacao" hidden disabled>
+            <legend>Frequência</legend>
+            <label>Presenças <input name="presencas" type="number" min="0" required></label>
+            <label>Total de aulas <input name="aulas" type="number" min="1" required></label>
+          </fieldset>
+          <div class="acoes">
+            <button type="submit" id="salvar">Cadastrar</button>
+            <button type="button" id="cancelar" class="secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+      <section class="cartao" aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista">Avaliações cadastradas</h2>
+        <p id="contagem">Carregando avaliações…</p>
+        <ul id="lista"></ul>
+      </section>
+    </div>
+    <dialog id="dialogo">
+      <form id="recuperacao">
+        <h2>Registrar recuperação</h2>
+        <p id="prova-recuperacao"></p>
+        <label for="nota-recuperacao">Nota de 0 a 10</label>
+        <input id="nota-recuperacao" type="number" min="0" max="10" step="any" required>
+        <p id="erro-recuperacao" role="alert"></p>
+        <div class="acoes">
+          <button type="submit">Salvar nota</button>
+          <button type="button" id="cancelar-recuperacao" class="secundario">Cancelar</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

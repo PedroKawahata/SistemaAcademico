@@ -1,15 +1,9 @@
-public class Trabalho : Avaliacao
+namespace SistemaAvaliacao.Models;
+
+public sealed record Trabalho(int Id, string Titulo, double Conteudo, double Apresentacao)
+    : Avaliacao(Id, Titulo)
 {
-    public double conteudo {get; set;}
-    public double Apresentacao {get; set;}
+    public override double CalcularNota() => (Conteudo + Apresentacao) / 2;
 
-    public override double CalcularNota()
-    {
-        return (conteudo + Apresentacao) /2;
-    }
-
-    public override string Descricao()
-    {
-        return $"Trabalho Prático {Titulo}";
-    }
+    public override string Descricao() => $"Trabalho prático: {Titulo}";
 }

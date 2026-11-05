@@ -1,26 +1,13 @@
-using Microsoft.Net.Http.Headers;
+namespace SistemaAvaliacao.Models;
 
-public class Prova : Avaliacao, IRecuperavel
+public sealed record Prova(int Id, string Titulo, int Acertos, int Total, double? NotaRecuperacao = null)
+    : Avaliacao(Id, Titulo), IRecuperavel
 {
-    public int Acertos {get; set;}
-    public int Total {get; set;}
-
-    public double? NotaRecuperacao{get; set;}
-
     public override double CalcularNota()
     {
-     double notaOriginal = (double)Acertos / Total *10;
-        if (NotaRecuperacao.HasValue)
-        {
-            return Math.Max(notaOriginal, NotaRecuperacao.Value);    
-        }
-        return notaOriginal;
-    }
-        public double Recuperar(double novaNota)
-    {
-        NotaRecuperacao = novaNota;
-        return CalcularNota();
-    }
+        var notaOriginal = 10.0 * Acertos / Total;
+        return Math.Max(notaOriginal, NotaRecuperacao ?? 0);
     }
 
-
+    public Avaliacao Recuperar(double novaNota) => this with { NotaRecuperacao = novaNota };
+}

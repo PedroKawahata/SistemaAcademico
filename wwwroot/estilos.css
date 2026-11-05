@@ -1,0 +1,47 @@
+:root {
+  color-scheme: light;
+  font: 100%/1.5 system-ui, sans-serif;
+  color: #172d29;
+  background: #f3f6f4;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+h1, h2, h3, p { margin: 0; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; overflow-wrap: anywhere; }
+.limite { width: min(72rem, 100% - 2rem); margin-inline: auto; }
+.cabecalho { background: #103c32; color: #fff; padding: 2.25rem 0 2.75rem; }
+.cabecalho h1 { font-size: clamp(1.85rem, 5vw, 3.2rem); line-height: 1.12; margin-block: .5rem; }
+.marca { color: #aef0cd; font-weight: 700; }
+.painel { display: grid; grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.8fr); gap: 1rem; align-items: start; padding-bottom: 2rem; }
+.cartao, dialog { background: #fff; border: 1px solid #d4e1da; border-radius: .85rem; padding: 1.25rem; }
+#mensagem { min-height: 1.5rem; margin-block: .65rem; }
+.erro, #erro-recuperacao { color: #992524; }
+#contagem, .detalhes { color: #425d54; font-size: .92rem; }
+label { display: block; font-weight: 600; }
+form > label { margin-top: .8rem; }
+input, select, button { font: inherit; border-radius: .45rem; }
+input, select { display: block; width: 100%; padding: .55rem; border: 1px solid #8aa297; margin-top: .2rem; }
+fieldset { min-width: 0; border: 1px solid #d4e1da; border-radius: .55rem; margin: 1rem 0; padding: .6rem .8rem; display: grid; gap: .65rem; }
+legend { padding-inline: .25rem; color: #425d54; }
+.acoes { display: flex; flex-wrap: wrap; gap: .45rem; }
+button { border: 1px solid #1c624b; background: #1c624b; color: white; padding: .45rem .7rem; font-weight: 650; cursor: pointer; }
+button:hover { filter: brightness(.9); }
+button:disabled { opacity: .6; cursor: wait; }
+button.secundario { color: #1c624b; background: white; }
+button.excluir { color: #992524; border-color: #b75a53; }
+:focus-visible { outline: 3px solid #347aa4; outline-offset: 2px; }
+#lista { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .7rem; }
+#lista li { border: 1px solid #d4e1da; border-radius: .6rem; padding: .85rem; }
+.resumo { display: flex; align-items: flex-start; justify-content: space-between; gap: .65rem; }
+.nota { background: #dff5e9; color: #15513e; border-radius: .45rem; padding: .25rem .5rem; white-space: nowrap; }
+#lista .acoes, dialog .acoes { margin-top: .8rem; }
+dialog { width: min(24rem, 100% - 2rem); color: inherit; }
+dialog::backdrop { background: #10271fc0; }
+
+@media (max-width: 45rem) {
+  .painel { grid-template-columns: 1fr; }
+  .cabecalho { padding-block: 1.6rem; }
+}

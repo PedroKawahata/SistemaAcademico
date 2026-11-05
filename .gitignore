@@ -16,3 +16,5 @@ obj/
 *.suo
 *.log
 .DS_Store
+# Dados locais da aplicação
+App_Data/
